@@ -1,1 +1,7 @@
-<p>personal-details works!</p>
+<form [formGroup]="personalForm" (ngSubmit)="next()">
+  <input formControlName="fullName" placeholder="Full Name" />
+  <input formControlName="cellphone" placeholder="Cellphone" />
+  <input formControlName="email" placeholder="Email" />
+  <input formControlName="address" placeholder="Address" />
+  <button type="submit">Next</button>
+</form>
