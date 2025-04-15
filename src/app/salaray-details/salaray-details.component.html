@@ -4,19 +4,19 @@
   <form [formGroup]="salaryForm" class="form-card">
     <div class="form-group">
       <label for="grossIncome">Gross Income</label>
-      <input type="number" formControlName="grossIncome" id="grossIncome" placeholder="Gross Income" />
+      <input class="form-control" type="number" formControlName="grossIncome" id="grossIncome" placeholder="Gross Income" />
       <div class="error">{{ getError('grossIncome') }}</div>
     </div>
 
     <div class="form-group">
       <label for="netIncome">Net Income</label>
-      <input type="number" formControlName="netIncome" id="netIncome" placeholder="Net Income" />
+      <input class="form-control" type="number" formControlName="netIncome" id="netIncome" placeholder="Net Income" />
       <div class="error">{{ getError('netIncome') }}</div>
     </div>
 
     <div class="form-group">
       <label for="expenses">Expenses</label>
-      <input type="number" formControlName="expenses" id="expenses" placeholder="Monthly Expenses" />
+      <input class="form-control" type="number" formControlName="expenses" id="expenses" placeholder="Monthly Expenses" />
       <div class="error">{{ getError('expenses') }}</div>
     </div>
 
