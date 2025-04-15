@@ -1,9 +1,12 @@
 import {Component, inject} from '@angular/core';
 import {ApplicationService} from '../services/application.service';
+import {ReactiveFormsModule} from '@angular/forms';
 
 @Component({
   selector: 'app-approval',
-  imports: [],
+  imports: [
+    ReactiveFormsModule
+  ],
   templateUrl: './approval.component.html',
   styleUrl: './approval.component.scss'
 })

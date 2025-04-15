@@ -1,6 +1,30 @@
-<form [formGroup]="salaryForm" (ngSubmit)="next()">
-  <input type="number" formControlName="grossIncome" placeholder="Gross Income" />
-  <input type="number" formControlName="netIncome" placeholder="Net Income" />
-  <input type="number" formControlName="expenses" placeholder="Monthly Expenses" />
-  <button type="submit">Next</button>
-</form>
+<div class="container">
+  <h2 class="form-title">Salary Information</h2>
+
+  <form [formGroup]="salaryForm" class="form-card">
+    <div class="form-group">
+      <label for="grossIncome">Gross Income</label>
+      <input type="number" formControlName="grossIncome" id="grossIncome" placeholder="Gross Income" />
+      <div class="error">{{ getError('grossIncome') }}</div>
+    </div>
+
+    <div class="form-group">
+      <label for="netIncome">Net Income</label>
+      <input type="number" formControlName="netIncome" id="netIncome" placeholder="Net Income" />
+      <div class="error">{{ getError('netIncome') }}</div>
+    </div>
+
+    <div class="form-group">
+      <label for="expenses">Expenses</label>
+      <input type="number" formControlName="expenses" id="expenses" placeholder="Monthly Expenses" />
+      <div class="error">{{ getError('expenses') }}</div>
+    </div>
+
+    <div class="button-group">
+      <button [disabled]="salaryForm.invalid" (click)="next()" class="btn-primary">Next</button>
+      <button type="button" (click)="back()" class="btn-secondary">Previous</button>
+    </div>
+
+  </form>
+</div>
+

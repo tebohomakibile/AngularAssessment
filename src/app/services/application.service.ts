@@ -12,15 +12,15 @@ export class ApplicationService {
     this.form = this.fb.group({
       personal: this.fb.group({
         fullName: ['', Validators.required],
-        cellphone: ['', Validators.required],
+        cellphone: ['', [Validators.required, Validators.pattern(/^0[0-9]{9}$/)]],
         email: ['', [Validators.required, Validators.email]],
         address: ['', Validators.required]
       }),
 
       salary: this.fb.group({
-        grossIncome: [0, Validators.required],
-        netIncome: [0, Validators.required],
-        expenses: [0, Validators.required]
+        grossIncome: [null, [Validators.required, Validators.min(0)]],
+        netIncome: [null, [Validators.required, Validators.min(0)]],
+        expenses: [null, [Validators.required, Validators.min(0)]]
       })
     });
   }

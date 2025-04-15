@@ -1,7 +1,57 @@
-<form [formGroup]="personalForm" (ngSubmit)="next()">
-  <input formControlName="fullName" placeholder="Full Name" />
-  <input formControlName="cellphone" placeholder="Cellphone" />
-  <input formControlName="email" placeholder="Email" />
-  <input formControlName="address" placeholder="Address" />
-  <button type="submit">Next</button>
-</form>
+<div class="container">
+  <h2 class="form-title">Personal Details</h2>
+  <form [formGroup]="personalForm" class="form-card">
+    <div class="form-group">
+      <label for="fullName">Full Name</label>
+      <input
+        formControlName="fullName"
+        id="fullName"
+        class="form-control"
+        placeholder="Enter your full name"
+      />
+      <div class="error">{{ getError('fullName') }}</div>
+    </div>
+
+    <div class="form-group">
+      <label for="cellphone">Cellphone</label>
+      <input
+        formControlName="cellphone"
+        id="cellphone"
+        class="form-control"
+        placeholder="Enter your cellphone number"
+      />
+      <div class="error">{{ getError('cellphone') }}</div>
+    </div>
+
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input
+        formControlName="email"
+        id="email"
+        class="form-control"
+        placeholder="Enter your email"
+      />
+      <div class="error">{{ getError('email') }}</div>
+    </div>
+
+    <div class="form-group">
+      <label for="address">Physical Address</label>
+      <input
+        formControlName="address"
+        id="address"
+        class="form-control"
+        placeholder="Enter your physical address"
+      />
+      <div class="error">{{ getError('address') }}</div>
+    </div>
+
+    <button
+      class="btn-primary"
+      type="submit"
+      [disabled]="personalForm.invalid"
+      (click)="next()"
+    >
+      Next
+    </button>
+  </form>
+</div>

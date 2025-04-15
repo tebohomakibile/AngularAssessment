@@ -3,6 +3,7 @@ import {ApplicationService} from '../services/application.service';
 import {Router} from '@angular/router';
 import {FormGroup} from '@angular/forms';
 import {ReactiveFormsModule} from '@angular/forms';
+import {ValidationService} from '../services/validation.service';
 
 @Component({
   selector: 'app-salaray-details',
@@ -15,6 +16,7 @@ export class SalarayDetailsComponent {
 
   public appService = inject(ApplicationService)
   private router = inject(Router);
+  private validationService = inject(ValidationService)
 
   salaryForm = this.appService.form.get('salary') as FormGroup;
 
@@ -24,6 +26,15 @@ export class SalarayDetailsComponent {
     } else {
       this.salaryForm.markAllAsTouched();
     }
+  }
+
+  back() {
+    this.router.navigate(['/personal-info']);
+  }
+
+  getError(controlName: string): string | null {
+    const control = this.salaryForm.get(controlName);
+    return this.validationService.getErrorMessage(control!, controlName);
   }
 
 }
