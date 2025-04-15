@@ -1,1 +1,6 @@
-<p>salaray-details works!</p>
+<form [formGroup]="salaryForm" (ngSubmit)="next()">
+  <input type="number" formControlName="grossIncome" placeholder="Gross Income" />
+  <input type="number" formControlName="netIncome" placeholder="Net Income" />
+  <input type="number" formControlName="expenses" placeholder="Monthly Expenses" />
+  <button type="submit">Next</button>
+</form>

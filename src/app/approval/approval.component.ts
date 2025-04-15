@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import {Component, inject} from '@angular/core';
+import {ApplicationService} from '../services/application.service';
 
 @Component({
   selector: 'app-approval',
@@ -8,4 +9,13 @@ import { Component } from '@angular/core';
 })
 export class ApprovalComponent {
 
+  public appService = inject(ApplicationService)
+
+  form = this.appService.form;
+  salary = this.form.get('salary')?.value;
+
+  get status(): string {
+    const { netIncome, expenses } = this.salary;
+    return expenses > netIncome * 0.5 ? 'Rejected' : 'Approved';
+  }
 }
